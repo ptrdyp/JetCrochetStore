@@ -1,6 +1,5 @@
 package com.dicoding.jetcrochetstore.ui.screen.home
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -35,8 +34,8 @@ fun HomeScreen(
             is UiState.Success -> {
                 HomeContent(
                     orderCrochet = uiState.data,
-                    navigateToDetail = navigateToDetail,
                     modifier = modifier,
+                    navigateToDetail = navigateToDetail,
                 )
             }
 
@@ -45,7 +44,6 @@ fun HomeScreen(
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HomeContent(
     orderCrochet: List<OrderCrochet>,

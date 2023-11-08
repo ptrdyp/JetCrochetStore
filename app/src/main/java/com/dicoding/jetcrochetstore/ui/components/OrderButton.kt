@@ -23,7 +23,7 @@ fun OrderButton(
     Button(
         onClick = onClick,
         enabled = enabled,
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
             .height(52.dp)
             .semantics(mergeDescendants = true) {
@@ -32,7 +32,7 @@ fun OrderButton(
     ) {
         Text(
             text = text,
-            modifier = modifier
+            modifier = Modifier
                 .align(Alignment.CenterVertically)
         )
     }

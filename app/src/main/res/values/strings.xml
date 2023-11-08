@@ -10,4 +10,8 @@
     <string name="increament_symbol">＋</string>
     <string name="decreament_symbol">—</string>
     <string name="add_to_cart_rp_d">"Add to cart : Rp%d "</string>
+    <string name="share_message">Hey, I want to checkout %1$s items from my cart with total Rp%2$s</string>
+    <string name="keranjang">Keranjang</string>
+    <string name="total_order">"Total pesanan : Rp%d "</string>
+    <string name="crochet_store">Crochet Store</string>
 </resources>

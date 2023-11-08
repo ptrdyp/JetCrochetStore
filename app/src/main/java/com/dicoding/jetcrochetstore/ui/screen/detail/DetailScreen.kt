@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -39,7 +38,6 @@ import com.dicoding.jetcrochetstore.R
 import com.dicoding.jetcrochetstore.di.Injection
 import com.dicoding.jetcrochetstore.ui.ViewModelFactory
 import com.dicoding.jetcrochetstore.ui.common.UiState
-import com.dicoding.jetcrochetstore.ui.components.CrochetItem
 import com.dicoding.jetcrochetstore.ui.components.OrderButton
 import com.dicoding.jetcrochetstore.ui.components.ProductCounter
 
@@ -72,7 +70,7 @@ fun DetailScreen(
                     onBackClick = navigateBack,
                     onAddToCart = { count ->
                         viewModel.addToCart(data.crochet, count)
-                        navigateToCart
+                        navigateToCart()
                     }
                 )
             }
@@ -203,7 +201,8 @@ fun DetailContent(
                 enabled = orderCount > 0,
                 onClick = {
                     onAddToCart(orderCount)
-                }
+                },
+                modifier = Modifier.clickable {  }
             )
         }
     }
