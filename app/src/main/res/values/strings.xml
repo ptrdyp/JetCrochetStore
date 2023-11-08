@@ -3,7 +3,7 @@
     <string name="price">Rp%d</string>
     <string name="home">Home</string>
     <string name="cart">Cart</string>
-    <string name="profile">Profile</string>
+    <string name="about">About</string>
     <string name="cari_crochet_favoritemu">Cari Crochet Favoritemu!</string>
     <string name="back">Back</string>
     <string name="description">Description</string>
@@ -14,4 +14,7 @@
     <string name="keranjang">Keranjang</string>
     <string name="total_order">"Total pesanan : Rp%d "</string>
     <string name="crochet_store">Crochet Store</string>
+    <string name="profile_picture">Profile picture</string>
+    <string name="profile_name">Putri Alviany Dyah Prameswari</string>
+    <string name="profile_email">alviany.prameswari@gmail.com</string>
 </resources>

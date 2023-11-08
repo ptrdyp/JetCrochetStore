@@ -31,7 +31,7 @@ import com.dicoding.jetcrochetstore.navigation.Screen
 import com.dicoding.jetcrochetstore.ui.screen.cart.CartScreen
 import com.dicoding.jetcrochetstore.ui.screen.detail.DetailScreen
 import com.dicoding.jetcrochetstore.ui.screen.home.HomeScreen
-import com.dicoding.jetcrochetstore.ui.screen.profile.ProfileScreen
+import com.dicoding.jetcrochetstore.ui.screen.profile.AboutScreen
 import com.dicoding.jetcrochetstore.ui.theme.JetCrochetStoreTheme
 
 @Composable
@@ -69,8 +69,8 @@ fun JetCrochetStoreApp(
                     shareOrder(context, message)
                 })
             }
-            composable(Screen.Profile.route) {
-                ProfileScreen()
+            composable(Screen.About.route) {
+                AboutScreen()
             }
             composable(
                 route = Screen.DetailCrochet.route,
@@ -136,9 +136,9 @@ private fun BottomBar(
                 screen = Screen.Cart
             ),
             NavigationItem(
-                title = stringResource(R.string.profile),
+                title = stringResource(R.string.about),
                 icon = Icons.Default.AccountCircle,
-                screen = Screen.Profile
+                screen = Screen.About
             ),
         )
         navigationItems.map { navigationItem ->
