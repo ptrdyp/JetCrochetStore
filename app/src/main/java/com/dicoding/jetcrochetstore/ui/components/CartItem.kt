@@ -2,10 +2,9 @@ package com.dicoding.jetcrochetstore.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -19,33 +18,35 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.dicoding.jetcrochetstore.R
+import com.dicoding.jetcrochetstore.ui.theme.JetCrochetStoreTheme
+import com.dicoding.jetcrochetstore.ui.theme.Shapes
 
 @Composable
-fun CrochetItem (
+fun CartItem(
+    crochetId: Long,
     image: String,
     title: String,
-    category: String,
-    price: Int,
-    description: String,
+    totalPrice: Int,
+    count: Int,
+    onProductCountChange: (id: Long, count: Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = modifier
-            .padding(16.dp)
+        modifier = modifier.fillMaxWidth()
     ) {
         AsyncImage(
             model = image,
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = modifier
-                .padding(8.dp)
-                .width(120.dp)
-                .height(160.dp)
-                .clip(RoundedCornerShape(8.dp))
+                .size(90.dp)
+                .clip(Shapes.small)
         )
         Column(
             modifier = modifier
+                .fillMaxWidth()
                 .padding(8.dp)
+                .weight(1f)
         ) {
             Text(
                 text = title,
@@ -53,50 +54,39 @@ fun CrochetItem (
                 overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontWeight = FontWeight.ExtraBold
-                ),
-                modifier = modifier.padding(
-                    bottom = 8.dp
                 )
             )
             Text(
-                text = category,
+                text = stringResource(R.string.price, totalPrice),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
                 style = MaterialTheme.typography.titleSmall,
-                maxLines = 1,
                 modifier = modifier.padding(
-                    bottom = 8.dp,
-                )
-            )
-            Text(
-                text = description,
-                maxLines = 3,
-                overflow = TextOverflow.Ellipsis,
-                style = MaterialTheme.typography.titleSmall
-            )
-            Text(
-                text = stringResource(R.string.price, price),
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = FontWeight.ExtraBold
-                ),
-                modifier = modifier.padding(
-                    top = 16.dp,
+                    top = 8.dp,
                 )
             )
         }
+        ProductCounter(
+            orderId = crochetId,
+            orderCount = count,
+            onProductIncreased = { onProductCountChange(crochetId, count + 1) },
+            onProductDecreased = { onProductCountChange(crochetId, count - 1) },
+            modifier = Modifier.padding(8.dp)
+        )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-fun CrochetItemPreview() {
-    MaterialTheme {
-        CrochetItem(
+fun CartItemPreview() {
+    JetCrochetStoreTheme {
+        CartItem(
+            1,
             "https://i.pinimg.com/564x/2e/0b/d2/2e0bd2052cf52f96d79fc61a0346197f.jpg",
             "Cozy Comfort Blanket",
-            "Quilt",
             300000,
-            "Made with high quality yarn to provide extra comfort at night. blablabalblablablabalblablablabalblablablabalbla",
+            0,
+            onProductCountChange = { crochetId, count -> },
         )
     }
 }
