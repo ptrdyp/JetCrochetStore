@@ -23,7 +23,7 @@ fun OrderButton(
     Button(
         onClick = onClick,
         enabled = enabled,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(52.dp)
             .semantics(mergeDescendants = true) {
