@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JetCrochetStore</string>
+    <string name="app_name">Crochet Store</string>
     <string name="price">Rp%d</string>
     <string name="home">Home</string>
     <string name="cart">Cart</string>
@@ -7,8 +7,8 @@
     <string name="cari_crochet_favoritemu">Cari Crochet Favoritemu!</string>
     <string name="back">Back</string>
     <string name="description">Description</string>
-    <string name="increament_symbol">＋</string>
-    <string name="decreament_symbol">—</string>
+    <string name="minus_symbol">—</string>
+    <string name="plus_symbol">＋</string>
     <string name="add_to_cart_rp_d">"Add to cart : Rp%d "</string>
     <string name="share_message">Hey, I want to checkout %1$s items from my cart with total Rp%2$s</string>
     <string name="keranjang">Keranjang</string>

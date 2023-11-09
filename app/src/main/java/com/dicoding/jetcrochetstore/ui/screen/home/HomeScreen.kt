@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dicoding.jetcrochetstore.di.Injection
@@ -70,7 +71,8 @@ fun HomeContent(
 
     Box(modifier = modifier) {
         LazyColumn(
-            contentPadding = PaddingValues(bottom = 16.dp)
+            contentPadding = PaddingValues(bottom = 16.dp),
+            modifier = modifier.testTag("CrochetList")
         ) {
             stickyHeader {
                 Search(
@@ -80,7 +82,7 @@ fun HomeContent(
                         .background(MaterialTheme.colorScheme.background)
                 )
             }
-            items(filteredCrochets) { data ->
+            items(filteredCrochets, key = {it.crochet.id} ) { data ->
                 CrochetItem(
                     image = data.crochet.image,
                     title = data.crochet.title,

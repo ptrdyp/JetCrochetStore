@@ -15,11 +15,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.dicoding.jetcrochetstore.R
 import com.dicoding.jetcrochetstore.ui.theme.JetCrochetStoreTheme
 
 @Composable
@@ -48,7 +50,7 @@ fun ProductCounter (
             modifier = Modifier.size(30.dp)
         ) {
             Text(
-                text = "—",
+                text = stringResource(R.string.minus_symbol),
                 fontSize = 22.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
@@ -75,7 +77,7 @@ fun ProductCounter (
             modifier = Modifier.size(30.dp)
         ) {
             Text(
-                text = "＋",
+                text = stringResource(R.string.plus_symbol),
                 fontSize = 22.sp,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
