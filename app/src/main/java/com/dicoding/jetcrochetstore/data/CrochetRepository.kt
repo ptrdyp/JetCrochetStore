@@ -1,5 +1,6 @@
 package com.dicoding.jetcrochetstore.data
 
+import com.dicoding.jetcrochetstore.model.Crochet
 import com.dicoding.jetcrochetstore.model.CrochetData
 import com.dicoding.jetcrochetstore.model.OrderCrochet
 import kotlinx.coroutines.flow.Flow
@@ -19,6 +20,12 @@ class CrochetRepository {
 
     fun getAllCrochets(): Flow<List<OrderCrochet>> {
         return flowOf(orderCrochets)
+    }
+
+    fun searchCrochet(query: String): List<Crochet> {
+        return CrochetData.dummyCrochets.filter {
+            it.title.contains(query, ignoreCase = true)
+        }
     }
 
     fun getOrderCrochetById(crochetId: Long): OrderCrochet {

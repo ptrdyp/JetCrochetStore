@@ -17,4 +17,5 @@
     <string name="profile_picture">Profile picture</string>
     <string name="profile_name">Putri Alviany Dyah Prameswari</string>
     <string name="profile_email">alviany.prameswari@gmail.com</string>
+    <string name="if_empty_cart">Keranjang masih kosong</string>
 </resources>

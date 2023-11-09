@@ -6,7 +6,6 @@ import com.dicoding.jetcrochetstore.data.CrochetRepository
 import com.dicoding.jetcrochetstore.ui.common.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class CartViewModel(private val repository: CrochetRepository) : ViewModel() {
@@ -29,7 +28,7 @@ class CartViewModel(private val repository: CrochetRepository) : ViewModel() {
     fun updateOrderCrochet(crochetId: Long, count: Int) {
         viewModelScope.launch {
             repository.updateOrderCrochet(crochetId, count)
-                .collect{ isUpdated ->
+                .collect{
                     getAddedOrderCrochet()
                 }
         }

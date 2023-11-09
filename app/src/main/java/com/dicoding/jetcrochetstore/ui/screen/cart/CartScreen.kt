@@ -14,6 +14,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -85,21 +86,37 @@ fun CartContent(
                 )
             }
         )
-        LazyColumn(
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-            modifier = Modifier.weight(1f)
-        ) {
-            items(state.orderCrochet, key = { it.crochet.id }) {
-                CartItem(
-                    crochetId = it.crochet.id,
-                    image = it.crochet.image,
-                    title = it.crochet.title,
-                    totalPrice = it.crochet.price * it.count,
-                    count = it.count,
-                    onProductCountChange = onProductCountChanged,
+        if (state.orderCrochet.isEmpty()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Text(
+                    text = stringResource(R.string.if_empty_cart),
+                    textAlign = TextAlign.Center
                 )
-                Divider()
+            }
+        } else {
+            LazyColumn(
+                contentPadding = PaddingValues(16.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                modifier = Modifier.weight(1f)
+            ) {
+                items(state.orderCrochet, key = { it.crochet.id }) {
+                    CartItem(
+                        crochetId = it.crochet.id,
+                        image = it.crochet.image,
+                        title = it.crochet.title,
+                        totalPrice = it.crochet.price * it.count,
+                        count = it.count,
+                        onProductCountChange = onProductCountChanged,
+                    )
+                    Divider()
+                }
             }
         }
         OrderButton(
